@@ -1,0 +1,7 @@
+# git+https://github.com/apache/incubator-airflow  # airflow master
+# apache-airflow[all_dbs, crypto]
+
+apache-airflow[crypto,s3]
+boto3
+
+requests
