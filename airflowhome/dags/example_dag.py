@@ -44,8 +44,8 @@ email_validation_operator = EmailValidationOperator(
     task_id='validate_emails',
     mailgun_conn_id='mailgun_api',
     aws_conn_id='aws_s3',
-    s3_bucket_name='astronomer-workflows-dev',
-    s3_key_source='astronomer/pardot/list_50674.json',
+    s3_bucket_name='my_bucket',
+    s3_key_source='my_contacts_list.json',
     dag=dag,
 )
 email_validation_operator.set_upstream(emails_changed)
