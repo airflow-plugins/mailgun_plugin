@@ -2,7 +2,7 @@ import json
 
 class PardotContact:
     """
-    A person on a mailing list in Pardot.
+    A person on a Pardot mailing list.
     """
 
     def __init__(self, id, email):

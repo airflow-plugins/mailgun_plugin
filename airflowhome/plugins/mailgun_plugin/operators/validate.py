@@ -14,7 +14,7 @@ from mailgun_plugin.utils import parse_ndjson_from_contents
 
 class EmailValidationOperator(BaseOperator):
     """
-    TODO
+    An operator to validate email addresses via Mailgun.
 
     https://documentation.mailgun.com/en/latest/user_manual.html#email-validation
     """
@@ -71,7 +71,6 @@ class EmailValidationOperator(BaseOperator):
         #     # 'humans@astronomer.io',
         # ]
 
-        # TODO: make this richer like having names if possible otherwise is parse pointless?
         emails = [x.email_address for x in objs]
 
         emails = emails[:1]
@@ -108,7 +107,3 @@ class EmailValidationOperator(BaseOperator):
         # results = [{'a': 'b'}, {'c': 'd'}]
         ndjson_output_content = '\n'.join([json.dumps(x, default=json_serial) for x in results])
         print(ndjson_output_content)
-
-        # TODO: store results on S3
-
-        # TODO: implement a caching / infrequent run system
