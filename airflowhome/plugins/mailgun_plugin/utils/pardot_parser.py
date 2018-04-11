@@ -1,5 +1,6 @@
 import json
 
+
 class PardotContact:
     """
     A person on a Pardot mailing list.
@@ -10,7 +11,10 @@ class PardotContact:
         self.email_address = email
 
     def __str__(self):
-        return '<{cls}> id_={id} email={email}'.format(cls=self.__class__.__name__, id=self.id_, email=self.email_address)
+        return '<{cls}> id_={id} email={email}'.format(
+            cls=self.__class__.__name__, id=self.id_,
+            email=self.email_address,
+        )
 
     @classmethod
     def json2obj(cls, json_record):

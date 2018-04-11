@@ -18,7 +18,8 @@ class EmailValidationOperator(BaseOperator):
     https://documentation.mailgun.com/en/latest/user_manual.html#email-validation
     """
 
-    def __init__(self, mailgun_conn_id, aws_conn_id, s3_bucket_name, s3_key_source, *args, **kwargs):
+    def __init__(self, mailgun_conn_id, aws_conn_id, s3_bucket_name,
+                 s3_key_source, *args, **kwargs):
         # compute results via mailgun api
         self.mailgun_conn_id = mailgun_conn_id
 
@@ -39,11 +40,14 @@ class EmailValidationOperator(BaseOperator):
         s3_hook = S3Hook(aws_conn_id=self.aws_conn_id)
 
         # get file from s3
-        if not s3_hook.check_for_key(self.s3_key_source, bucket_name=self.s3_bucket_name):
-            raise Exception('S3 key {} does not exist in {}'.format(self.s3_key_source, self.s3_bucket_name))
+        if not s3_hook.check_for_key(self.s3_key_source,
+                                     bucket_name=self.s3_bucket_name):
+            raise Exception('S3 key {} does not exist in {}'.format(
+                self.s3_key_source, self.s3_bucket_name))
 
         # read file
-        s3_obj = s3_hook.get_key(self.s3_key_source, bucket_name=self.s3_bucket_name)
+        s3_obj = s3_hook.get_key(self.s3_key_source,
+                                 bucket_name=self.s3_bucket_name)
         s3_file_contents = s3_obj.get()['Body'].read().decode('utf-8')
 
         return s3_file_contents
@@ -81,5 +85,6 @@ class EmailValidationOperator(BaseOperator):
             results.append(result)
 
         # serialize results
-        ndjson_output_content = '\n'.join([json.dumps(x, default=json_serial) for x in results])
+        ndjson_output_content = '\n'.join([json.dumps(x, default=json_serial)
+                                           for x in results])
         print(ndjson_output_content)

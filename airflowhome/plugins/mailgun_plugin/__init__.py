@@ -11,6 +11,7 @@ from airflow.plugins_manager import AirflowPlugin
 from mailgun_plugin.operators import EmailListChangedSensor
 from mailgun_plugin.operators import EmailValidationOperator
 
+
 class MailgunPlugin(AirflowPlugin):
     name = 'mailgun_plugin'
     operators = [

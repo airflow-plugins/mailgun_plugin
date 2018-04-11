@@ -1,5 +1,6 @@
 import datetime
 
+
 def json_serial(obj):
     """
     JSON serializer for objects not serializable by default.

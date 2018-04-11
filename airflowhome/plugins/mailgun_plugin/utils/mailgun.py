@@ -1,6 +1,8 @@
 def is_likely_human(response):
     """
-    From the email validation response, determine whether a given email is valid by combining the various signals in an opinionated way to return a boolean.
+    From the email validation response, determine whether a given email is
+    valid by combining the various signals in an opinionated way to return a
+    boolean.
 
     This can be tweaked to be more/less aggressive.
 

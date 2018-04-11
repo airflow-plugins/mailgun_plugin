@@ -3,9 +3,12 @@ import re
 
 def filter_address_only(email):
     """
-    The Mailgun parse API can return emails like: a@b.com, Foo <a@b.com>, Foo Bar <a@b.com>, etc; but the validate API needs just the email address component.
+    The Mailgun parse API can return emails like: a@b.com, Foo <a@b.com>,
+    Foo Bar <a@b.com>, etc; but the validate API needs just the email address
+    component.
 
-    This may be a bug in their API as they seemed surprised it didn't work when I mentioned it.
+    This may be a bug in their API as they seemed surprised it didn't work
+    when I mentioned it.
     """
     pattern_with_name = re.compile(r'.*<(.*)>.*')
     match1 = pattern_with_name.match(email)
