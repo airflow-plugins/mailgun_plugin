@@ -11,7 +11,7 @@ class MailgunHook(BaseHook):
     def __init__(self, mailgun_conn_id):
         self.mailgun_conn_id = mailgun_conn_id
         conn = self.get_connection(mailgun_conn_id)
-        self.public_api_key = self.conn.login
+        self.public_api_key = conn.login
 
         self.session = requests.Session()
         self.session.auth = ('api', self.public_api_key)
