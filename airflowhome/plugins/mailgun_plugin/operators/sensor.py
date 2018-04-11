@@ -7,6 +7,4 @@ class EmailListChangedSensor(BaseSensorOperator):
     """
 
     def poke(self, context):
-        print('* EmailListChangedSensor.poke')
         return True
-        # return False

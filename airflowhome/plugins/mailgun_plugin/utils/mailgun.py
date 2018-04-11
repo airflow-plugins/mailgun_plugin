@@ -16,12 +16,9 @@ def is_likely_human(response):
      'reason': 'malformed address; failed parse checks'}
     """
     is_disposable = response['is_disposable_address']
-    # print('type(is_disposable)', type(is_disposable))
     is_role = response['is_role_address']  # role ex. info@, postmaster@
     is_valid = response['is_valid']
 
     is_human = is_valid and not is_disposable and not is_role
-    # print(f'is_human={is_human}')
-    # import pdb ; pdb.set_trace()
 
     return is_human

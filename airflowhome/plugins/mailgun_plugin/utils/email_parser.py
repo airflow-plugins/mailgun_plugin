@@ -9,11 +9,9 @@ def filter_address_only(email):
     """
     pattern_with_name = re.compile(r'.*<(.*)>.*')
     match1 = pattern_with_name.match(email)
-    # print(f'match1={match1}')
 
     pattern_address_only = re.compile(r'.*@.*')
     match2 = pattern_address_only.match(email)
-    # print(f'match2={match2}')
 
     if match1 is not None:
         email_address = match1.groups()[0]
