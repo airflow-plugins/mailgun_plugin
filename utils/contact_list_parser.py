@@ -1,9 +1,9 @@
 import json
 
 
-class PardotContact:
+class Contact:
     """
-    A person on a Pardot mailing list.
+    A person with an email.
     """
 
     def __init__(self, id, email):
@@ -41,7 +41,7 @@ class PardotContact:
 #         contents = f.read()
 
 #     rows = contents.strip().split('\n')
-#     objs = PardotContact.json2objs(rows)
+#     objs = Contact.json2objs(rows)
 
 #     return objs
 
@@ -51,5 +51,5 @@ def parse_ndjson_from_contents(contents):
     Parse the Pardot ndjson contacts file contents from S3.
     """
     rows = contents.strip().split('\n')
-    objs = PardotContact.json2objs(rows)
+    objs = Contact.json2objs(rows)
     return objs
