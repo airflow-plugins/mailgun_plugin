@@ -1,6 +1,14 @@
 Airflow Mailgun Plugin
 ======================
 
+.. image:: https://api.codeclimate.com/v1/badges/6216131319f2a4e75718/maintainability
+   :target: https://codeclimate.com/github/airflow-plugins/mailgun_plugin/maintainability
+   :alt: Maintainability
+
+.. image:: https://api.codeclimate.com/v1/badges/6216131319f2a4e75718/test_coverage
+   :target: https://codeclimate.com/github/airflow-plugins/mailgun_plugin/test_coverage
+   :alt: Test Coverage
+
 An Airflow hook and operator to validate a list of emails using the `Mailgun Email Validation API <https://www.mailgun.com/email-validation>`_.
 
 An `example Mailgun validation DAG <https://github.com/airflow-plugins/Example-Airflow-DAGs/blob/master/poc/mailgun_validation_example.py>`_ is available as well.
