@@ -61,10 +61,6 @@ class EmailValidationOperator(BaseOperator):
 
         emails = [x.email_address for x in objs]
 
-        # FIXME: remove after done testing but only once the cost of this API
-        # is understood and accounted for
-        emails = emails[:1]
-
         self.mailgun_hook = self.get_hook()
 
         parsed, unparseable = self.mailgun_hook.parse_emails(emails)
