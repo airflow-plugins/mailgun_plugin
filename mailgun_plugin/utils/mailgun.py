@@ -8,14 +8,16 @@ def is_likely_human(response):
 
     An individual response looks like this:
 
-    {'address': 'Foo <foo@mailgun.net>',
+    {'address': 'taylor@astronomer.io',
      'did_you_mean': None,
      'is_disposable_address': False,
      'is_role_address': False,
-     'is_valid': False,
-     'mailbox_verification': None,
-     'parts': {'display_name': None, 'domain': None, 'local_part': None},
-     'reason': 'malformed address; failed parse checks'}
+     'is_valid': True,
+     'mailbox_verification': 'true',
+     'parts': {'display_name': None,
+      'domain': 'astronomer.io',
+      'local_part': 'taylor'},
+     'reason': None}
     """
     is_disposable = response['is_disposable_address']
     is_role = response['is_role_address']  # role ex. info@, postmaster@
