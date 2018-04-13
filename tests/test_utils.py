@@ -9,10 +9,9 @@ from mailgun_plugin.utils import is_likely_human
     ('info@astronomer.io', False, True, True, False),
 ])
 def test_is_likely_human(address, disposable, role, valid, expected):
-    response = {
+    assert is_likely_human({
         'address': address,
         'is_disposable_address': disposable,
         'is_role_address': role,
         'is_valid': valid,
-    }
-    assert is_likely_human(response) is expected
+    }) is expected
