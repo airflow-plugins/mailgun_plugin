@@ -1,31 +1,18 @@
+import pytest
+
 from mailgun_plugin.utils import is_likely_human
 
 
-def test_is_likely_human_valid():
+@pytest.mark.parametrize('address,disposable,role,valid,expected', [
+    ('taylor@astronomer.io', False, False, True, True),
+    ('mark.zuckerberg@astronomer.io', False, False, False, False),
+    ('info@astronomer.io', False, True, True, False),
+])
+def test_is_likely_human(address, disposable, role, valid, expected):
     response = {
-        'address': 'taylor@astronomer.io',
-        'is_disposable_address': False,
-        'is_role_address': False,
-        'is_valid': True,
+        'address': address,
+        'is_disposable_address': disposable,
+        'is_role_address': role,
+        'is_valid': valid,
     }
-    assert is_likely_human(response) is True
-
-
-def test_is_likely_human_invalid():
-    response = {
-        'address': 'mark.zuckerberg@astronomer.io',
-        'is_disposable_address': False,
-        'is_role_address': False,
-        'is_valid': False,
-    }
-    assert is_likely_human(response) is False
-
-
-def test_is_likely_human_role():
-    response = {
-        'address': 'info@astronomer.io',
-        'is_disposable_address': False,
-        'is_role_address': True,
-        'is_valid': True,
-    }
-    assert is_likely_human(response) is False
+    assert is_likely_human(response) is expected
