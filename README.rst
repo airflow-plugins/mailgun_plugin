@@ -20,9 +20,7 @@ In the root of your Airflow project run:
 
 .. code-block:: console
 
-    $ git clone https://github.com/airflow-plugins/mailgun_plugin plugins/mailgun_plugin
-    $ echo "-r plugins/mailgun_plugin/requirements.txt" >> requirements.txt
-    $ pip install -U -r requirements.txt
+    $ pip install -U git+https://github.com/airflow-plugins/mailgun_plugin.git@v0.0.1
 
 Quickstart
 ----------
